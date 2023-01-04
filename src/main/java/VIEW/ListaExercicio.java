@@ -161,7 +161,6 @@ public class ListaExercicio extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(6, 6, 6))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,4 +363,6 @@ public class ListaExercicio extends javax.swing.JFrame {
        txtSeries.setText(tableExercicio.getModel().getValueAt(setar, 3).toString()); 
        txtTecnica.setText(tableExercicio.getModel().getValueAt(setar, 4).toString());  
     }
+    
+
 }

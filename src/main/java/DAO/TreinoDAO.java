@@ -74,4 +74,25 @@ public class TreinoDAO {
             JOptionPane.showMessageDialog(null, "TreinoDAO excluir: " + erro);
         }
     }
+    
+    public void AlterarTreino (TreinoDTO objtreinodto){
+        String sql = "Update treino set nome = ?, publico_alvo = ?, duracao = ?, n_series = ?, frequencia = ? where id = ?;";
+        connection = new ConexaoDAO().ConectaBD();
+
+        try {
+            pstm = connection.prepareStatement(sql);
+            pstm.setString(1, objtreinodto.getNome());
+            pstm.setInt(3, objtreinodto.getDuracao());
+            pstm.setInt(4, objtreinodto.getSeries());
+            pstm.setInt(5, objtreinodto.getFrequencia());
+            pstm.setString(2, objtreinodto.getPublico());
+            pstm.setInt(6, objtreinodto.getId());
+
+            pstm.execute();
+            pstm.close();
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "TreinoDAO: " + erro);
+        }
+    }
 }

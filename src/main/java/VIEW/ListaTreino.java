@@ -3,6 +3,7 @@ package VIEW;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import DAO.TreinoDAO;
+import DTO.ExercicioDTO;
 import DTO.TreinoDTO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -252,7 +253,8 @@ public class ListaTreino extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIDActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+        AlterarExercício();
+        listarTreinos();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void txtSeriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSeriesActionPerformed
@@ -394,5 +396,28 @@ public class ListaTreino extends javax.swing.JFrame {
         txtPublico.setText("");
         txtFrequencia.setText("");
         txtNome.requestFocus();
+    }
+    
+        private void AlterarExercício () {
+        String nome, publico;
+        int frequencia, series, duracao, id;
+        
+        id = Integer.parseInt(txtID.getText());
+        frequencia = Integer.parseInt(txtFrequencia.getText());
+        series = Integer.parseInt(txtSeries.getText());
+        duracao = Integer.parseInt(txtDuracao.getText());
+        nome =txtNome.getText();
+        publico = txtPublico.getText();
+        
+        TreinoDTO objtreinodto = new TreinoDTO();
+        objtreinodto.setDuracao(duracao);
+        objtreinodto.setId(id);
+        objtreinodto.setFrequencia(frequencia);
+        objtreinodto.setNome(nome);
+        objtreinodto.setPublico(publico);
+        objtreinodto.setSeries(duracao);
+                
+        TreinoDAO objtreinoDAO = new TreinoDAO();
+        objtreinoDAO.AlterarTreino(objtreinodto);
     }
 }
